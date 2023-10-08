@@ -10,8 +10,6 @@ Endpoints:
 + POST "/api/v1/:sheet_id/:cell_id" accept params {“value”: "<some value>"} implements UPSERT strategy (update or insert) for both sheet_id and cell_id. 
     1. Response with 201 and {"value": <value in request>, "result": <result of value>} if value is OK
     2. Response with 422 and {"value"; <value in request>, "result": "ERROR"} is value is not OK
-    
-    Examples: 
         - POST /api/v1/sheet1/var1 with {“value:”: “0”}
           Response: {“value:”: “0”, “result”: “0”}
         - POST /api/v1/sheet1/var1 with {“value:”: “1”}
@@ -25,8 +23,6 @@ Endpoints:
 + GET "/api/v1/:sheet_id/:cell_id"
     1. Response with 200 if cell is present 
     2. 404 otherwise
-    
-    Examples: 
         - GET /api/v1/sheet1/var1
         Response: {“value”: “1”, result: “1”}
         - GET /api/v1/sheet1/var1
@@ -36,14 +32,13 @@ Endpoints:
 + GET "/api/v1/:sheet_id"
     1. Response with 200 if sheet is present 
     2. 404 otherwise
-  
-    GET "/api/v1/sheet1" 
-    Response:
-    {
-    “var1”: {“value”: “1”, “result”: “1”},
-    “var2”: {“value”: “2”, “result”: “2”},
-    “var3”: {“value”: “=var1+var2”, “result”: “3”}
-    }
+        - GET "/api/v1/sheet1" 
+        Response:
+        {
+        “var1”: {“value”: “1”, “result”: “1”},
+        “var2”: {“value”: “2”, “result”: “2”},
+        “var3”: {“value”: “=var1+var2”, “result”: “3”}
+        }
 
 
 
