@@ -11,23 +11,31 @@ Endpoints:
     1. Response with 201 and {"value": <value in request>, "result": <result of value>} if value is OK
     2. Response with 422 and {"value"; <value in request>, "result": "ERROR"} is value is not OK
         - POST /api/v1/sheet1/var1 with {“value:”: “0”}
+          
           Response: {“value:”: “0”, “result”: “0”}
         - POST /api/v1/sheet1/var1 with {“value:”: “1”}
+          
           Response: {“value:”: “1”, “result”: “1”}
-        - POST /api/v1/sheet1/var2 with {“value”: “2”} 
+        - POST /api/v1/sheet1/var2 with {“value”: “2”}
+          
           Response: {“value:”: “2”, “result”: “2”}
         - POST /api/v1/sheet1/var3 with {“value”: “=var1+var2”}
+          
           Response: {“value”: “=var1+var2”, “result”: “3”}
         - POST /api/v1/sheet1/var4 with {“value”: “=var3+var4”}
+          
           Response: {“value”: “=var3+var4”, “result”: “ERROR”}
 + GET "/api/v1/:sheet_id/:cell_id"
     1. Response with 200 if cell is present 
     2. 404 otherwise
         - GET /api/v1/sheet1/var1
+          
         Response: {“value”: “1”, result: “1”}
         - GET /api/v1/sheet1/var1
+          
         Response: {“value”: “2”, result: “2”}
         - GET /api/v1/sheet1/var3
+          
         Response: {“value”: “=var1+var2”, result: “3”}
 + GET "/api/v1/:sheet_id"
     1. Response with 200 if sheet is present 
