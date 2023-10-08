@@ -10,6 +10,7 @@ Endpoints:
 + POST "/api/v1/:sheet_id/:cell_id" accept params {“value”: "<some value>"} implements UPSERT strategy (update or insert) for both sheet_id and cell_id. 
     1. Response with 201 and {"value": <value in request>, "result": <result of value>} if value is OK
     2. Response with 422 and {"value"; <value in request>, "result": "ERROR"} is value is not OK
+    
     Examples: 
         - POST /api/v1/sheet1/var1 with {“value:”: “0”}
           Response: {“value:”: “0”, “result”: “0”}
@@ -24,6 +25,7 @@ Endpoints:
 + GET "/api/v1/:sheet_id/:cell_id"
     1. Response with 200 if cell is present 
     2. 404 otherwise
+    
     Examples: 
         - GET /api/v1/sheet1/var1
         Response: {“value”: “1”, result: “1”}
@@ -34,6 +36,7 @@ Endpoints:
 + GET "/api/v1/:sheet_id"
     1. Response with 200 if sheet is present 
     2. 404 otherwise
+  
     GET "/api/v1/sheet1" 
     Response:
     {
@@ -54,9 +57,15 @@ Tech stack:
 + Docker
 
 To run app, firstly install dependencies with console opened in project directory: 
+
 `npm install`
+
 Then, to run tests, type: 
+
 `npm test`
+
 To start server, type: 
+
 `npm start`
+
 To run tests and app in docker container just use `docker compose up` in api directory
