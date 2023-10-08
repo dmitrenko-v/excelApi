@@ -30,23 +30,30 @@ Endpoints:
     2. 404 otherwise
         - GET /api/v1/sheet1/var1
           
-        Response: {“value”: “1”, result: “1”}
+          Response: {“value”: “1”, result: “1”}
         - GET /api/v1/sheet1/var1
           
-        Response: {“value”: “2”, result: “2”}
+          Response: {“value”: “2”, result: “2”}
         - GET /api/v1/sheet1/var3
           
-        Response: {“value”: “=var1+var2”, result: “3”}
+          Response: {“value”: “=var1+var2”, result: “3”}
 + GET "/api/v1/:sheet_id"
     1. Response with 200 if sheet is present 
     2. 404 otherwise
-        - GET "/api/v1/sheet1" 
-        Response:
-        {
-        “var1”: {“value”: “1”, “result”: “1”},
-        “var2”: {“value”: “2”, “result”: “2”},
-        “var3”: {“value”: “=var1+var2”, “result”: “3”}
-        }
+       
+        - GET "/api/v1/sheet1"
+          
+          Response:
+          
+          {
+          
+          “var1”: {“value”: “1”, “result”: “1”},
+          
+          “var2”: {“value”: “2”, “result”: “2”},
+          
+          “var3”: {“value”: “=var1+var2”, “result”: “3”}
+          
+          }
 
 
 
